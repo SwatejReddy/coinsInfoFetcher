@@ -65,6 +65,7 @@ const updateMultipleCoins = async () => {
 const run = async () => {
     await connectDB();
     await updateMultipleCoins();  // Run the update for all coins
+    process.exit(0);
 };
 
 run().catch(err => console.error(err));
