@@ -3,9 +3,9 @@ name: Fetch and Update Crypto Data
 on:
   push:
     branches:
-      - main  # Change to your default branch if necessary
+      - main
   schedule:
-    - cron: '*/5 * * * *'  # This means every minute
+    - cron: '0 */2 * * *' 
   workflow_dispatch:
 
 jobs:
