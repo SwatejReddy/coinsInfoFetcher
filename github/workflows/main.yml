@@ -3,6 +3,7 @@ name: Fetch and Update Crypto Data
 on:
   schedule:
     - cron: '*/1 * * * *'  # This means every minute
+  workflow_dispatch:
 
 jobs:
   fetch-and-update:
