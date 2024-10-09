@@ -1,0 +1,27 @@
+name: Fetch and Update Crypto Data
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'  # This means every minute
+
+jobs:
+  fetch-and-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'  # Specify your Node.js version
+
+      - name: Install dependencies
+        run: |
+          npm install
+          
+      - name: Run fetch and update script
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}  # Add this secret in GitHub settings
+        run: |
+          npx ts-node fetchAndUpdate.ts  # Run the script
