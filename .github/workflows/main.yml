@@ -5,7 +5,7 @@ on:
     branches:
       - main  # Change to your default branch if necessary
   schedule:
-    - cron: '*/1 * * * *'  # This means every minute
+    - cron: '*/5 * * * *'  # This means every minute
   workflow_dispatch:
 
 jobs:
