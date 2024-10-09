@@ -24,4 +24,4 @@ jobs:
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}  # Add this secret in GitHub settings
         run: |
-          npx ts-node fetchAndUpdate.ts  # Run the script
+          npx ts-node app.ts  # Run the script

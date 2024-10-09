@@ -4,15 +4,14 @@ import Crypto from "./models/crypto.model"; // Adjust the import based on your p
 import { DATABASE_NAME } from "./constants";
 
 const connectDB = async () => {
-    if (mongoose.connection.readyState === 1) return; // Avoid multiple connections
     try {
-        await mongoose.connect(`${process.env.MONGODB_URI}/${DATABASE_NAME}`);
-        console.log("MONGODB connection successful!");
+        const connectionInstance = await mongoose.connect(`${process.env.MONGODB_URI}/${DATABASE_NAME}`);
+        console.log("MONGODB connection successful!\n", connectionInstance.connection.host);
     } catch (error) {
         console.log("MONGODB connection failed!", error);
-        throw new Error("Failed to connect to MongoDB");
+        process.exit(1);
     }
-};
+}
 
 export const updateCoinData = async () => {
     const coin = "matic-network";
