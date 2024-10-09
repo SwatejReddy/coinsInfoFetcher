@@ -14,7 +14,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'  # Specify your Node.js version
+          node-version: '18.x'  # Use the latest stable version
 
       - name: Install dependencies
         run: |
@@ -22,6 +22,6 @@ jobs:
           
       - name: Run fetch and update script
         env:
-          MONGODB_URI: ${{ secrets.MONGODB_URI }}  # Add this secret in GitHub settings
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}  # Ensure this is set in your repository settings
         run: |
-          npx ts-node app.ts  # Run the script
+          npx ts-node src/app.ts  # Adjust the path if necessary
