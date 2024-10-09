@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema, Document, Model } from "mongoose";
 
 // Define the interface for the Crypto document
 export interface ICrypto extends Document {
@@ -41,7 +41,7 @@ const CryptoSchema: Schema<ICrypto> = new Schema({
         },
         "24hChange": {
             type: Number,
-            required: true // Fix typo from 'requried' to 'required'
+            required: true
         }
     }],
     latestData: {
@@ -53,5 +53,5 @@ const CryptoSchema: Schema<ICrypto> = new Schema({
 });
 
 // Export the Crypto model
-const Crypto = mongoose.model<ICrypto>('Crypto', CryptoSchema);
+const Crypto: Model<ICrypto> = mongoose.model<ICrypto>('Crypto', CryptoSchema);
 export default Crypto;
