@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 import axios from "axios";
 import Crypto from "./models/crypto.model"; // Adjust the import based on your project structure
 import { DATABASE_NAME } from "./constants";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 
 const connectDB = async () => {
     try {
